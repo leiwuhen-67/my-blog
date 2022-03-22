@@ -1,0 +1,60 @@
+---
+title: vue3.0与vue3.2对比
+date: 2022-03-21 17:02:01
+permalink: /vue3.x/vue3.0-vue3.2/
+categories: 
+  - vue3
+tags: 
+  - 
+---
+vue3.0与vue3.2对比：
+
+
+1）、vue3.0：
+
+
+①、变量、方法必须return出来，才能在template中使用。
+
+
+②、引入自定义组件时，还必须在components中进行注册后才能使用。
+
+
+③、props与emit通过setup函数来获取。
+
+④、setup函数须写在script标签内部，需要通过export default导出。
+
+2）、vue3.2：
+
+
+①、只需在script标签中添加setup，变量和方法不需要return就能使用。
+
+
+②、组件只需要引入，不用在components中注册就能够使用。
+
+
+③、子组件中props通过defineProps来获取：
+
+例如：
+
+```JavaScript
+<template>
+  <div>
+    子组件{{name}} // 心欲无痕========
+  </div>
+</template>
+
+<script setup>
+  import {defineProps} from 'vue'
+
+  defineProps({
+   name:{
+     type:String,
+     default:'默认值'
+   }
+ })
+</script>
+```
+
+④、子组件通过defineEmits来触发父组件事件或更改父组件数据
+
+
