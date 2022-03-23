@@ -4,21 +4,21 @@ home: true
 heroText: leiwuhen-67's blog
 tagline: 摸鱼一时爽，一直摸鱼一直爽。
 # actionText: 立刻进入 →
-# actionLink: /about/about
+# actionLink: /pages/5699bd/
 # bannerBg: auto # auto => 网格纹背景(有bodyBgImg时无背景)，默认 | none => 无 | '大图地址' | background: 自定义背景样式       提示：如发现文本颜色不适应你的背景时可以到palette.styl修改$bannerTextColor变量
 
 features: # 可选的
   - title: 前端
     details: JavaScript、Vue、React框架等前端技术
-    link: /vue3.x/vue3.0-vue3.2 # 可选
+    link: /pages/0856be/ # 可选
     imgUrl: /img/web.png # 可选
   - title: 页面
     details: html(5)/css(3)，前端页面相关技术
-    link: /web/web
+    link: /pages/ee4f97/
     imgUrl: /img/ui.png
   - title: 关于
     details: 关于
-    link: /about/about
+    link: /pages/5699bd/
     imgUrl: /img/other.png
 
 # 文章列表显示方式: detailed 默认，显示详细版文章列表（包括作者、分类、标签、摘要、分页等）| simple => 显示简约版文章列表（仅标题和日期）| none 不显示文章列表

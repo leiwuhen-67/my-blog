@@ -9,6 +9,7 @@ import baiduCode from './config/baiduCode' // 百度统计hm码
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
   theme: 'vdoing', // 使用npm包主题
+  base: '/my-blog/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
   // theme: resolve(__dirname, '../../vdoing'), // 使用本地主题
 
   locales: {
@@ -18,7 +19,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       description: 'web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github等技术文章。',
     }
   },
-  //base: '/my-blog/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
+  
 
   // 主题配置
   themeConfig: {
@@ -29,7 +30,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         items: [
           {
             text: '前端相关',
-            link: '/web/web'
+            link: '/pages/ee4f97/'
           }
         ]
       },
@@ -37,8 +38,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         text: 'Vue',
         items: [
           {
-            text: 'vue3.x',
-            link: '/vue3.x/vue3.0-vue3.2/'
+            text: 'vue2',
+            link: '/pages/10d64c/'
           }, {
             text: '导航守卫',
             link: '/pages/0856ce/'
@@ -50,15 +51,15 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         items: [
           {
             text: '使用create-react-app快速搭建React开发环境及路由等的使用',
-            link: '/react/create-react-app'
+            link: '/pages/2be28a/'
           }, {
             text: 'hooks之useEffect',
-            link: '/react/hook-useEffect'
+            link: '/pages/a6152f/'
           }
         ]
       }
     ],
-    sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
+    sidebarDepth: 3, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     // logo: 'https://leiwuhen-67.github.io/images/avatar.jpg', // 导航栏logo
     // repo: 'xugaoyi/vuepress-theme-vdoing', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索结果显示最大数
