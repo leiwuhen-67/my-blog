@@ -38,7 +38,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         text: 'Vue',
         items: [
           {
-            text: 'vue2',
+            text: '项目国际化',
             link: '/pages/10d64c/'
           }, {
             text: '导航守卫',
