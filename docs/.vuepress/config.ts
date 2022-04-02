@@ -107,7 +107,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
-      avatar: '/img/avatar.jpeg',
+      avatar: 'https://leiwuhen-67.github.io/my-blog/img/avatar.jpeg',
       name: 'leiwuhen-67',
       slogan: '搬砖人',
     },
