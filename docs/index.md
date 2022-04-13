@@ -12,9 +12,9 @@ features: # 可选的
     details: JavaScript、Vue、React框架等前端技术
     link: /pages/0856be/ # 可选
     imgUrl: /img/web.png # 可选
-  - title: 页面
+  - title: 随笔
     details: html(5)/css(3)，前端页面相关技术
-    link: /pages/ee4f97/
+    link: /pages/2403dc/
     imgUrl: /img/ui.png
   - title: 关于
     details: 关于

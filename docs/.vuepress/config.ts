@@ -30,7 +30,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         items: [
           {
             text: '前端相关',
-            link: '/pages/ee4f97/'
+            link: '/pages/2403dc/'
           }
         ]
       },
