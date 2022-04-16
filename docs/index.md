@@ -2,7 +2,7 @@
 home: true
 # heroImage: /img/web.png
 heroText: leiwuhen-67's blog
-tagline: 摸鱼一时爽，一直摸鱼一直爽。
+tagline: 不经一番寒彻骨，怎得梅花扑鼻香。
 # actionText: 立刻进入 →
 # actionLink: /pages/5699bd/
 # bannerBg: auto # auto => 网格纹背景(有bodyBgImg时无背景)，默认 | none => 无 | '大图地址' | background: 自定义背景样式       提示：如发现文本颜色不适应你的背景时可以到palette.styl修改$bannerTextColor变量
