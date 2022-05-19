@@ -9,14 +9,14 @@ import baiduCode from './config/baiduCode' // 百度统计hm码
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
   theme: 'vdoing', // 使用npm包主题
-  base: '/my-blog/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
+  //base: '/my-blog/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
   // theme: resolve(__dirname, '../../vdoing'), // 使用本地主题
 
   locales: {
     '/': {
       lang: 'zh-CN',
       title: "leiwuhen-67's blog",
-      description: 'web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github等技术文章。',
+      description: 'web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,css3,html5,Node,git,github等技术文章。',
     }
   },
   
@@ -25,39 +25,50 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   themeConfig: {
     // 导航配置
     nav: [
+      { text: '首页', link: '/' },
       {
-        text: '前端杂烩',
+        text: '前端',
+        link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
           {
-            text: '前端相关',
-            link: '/pages/2403dc/'
+            text: '学习笔记',
+            items: [
+              {
+                text: '《Vue》笔记',
+                link: '/note/vue/'
+              }, {
+                text: '《React》笔记',
+                link: '/note/react/'
+              }, {
+                text: '《NodeJs》笔记',
+                link: '/note/node/'
+              }, {
+                text: '《CSS》笔记',
+                link: '/note/css/'
+              }
+            ]
           }
         ]
       },
       {
-        text: 'Vue',
+        text: '随笔',
+        link: '/random/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
           {
-            text: '项目国际化',
-            link: '/pages/10d64c/'
-          }, {
-            text: 'vue3.x导航守卫',
-            link: '/pages/0856ce/'
+            text: '随性之笔',
+            items: [
+              {
+                text: '《Mock》笔记',
+                link: '/pages/2403dc/'
+              }, {
+                text: '《MySQL》笔记',
+                link: '/random/mysql/'
+              }
+            ]
           }
         ]
       },
-      {
-        text: 'React',
-        items: [
-          {
-            text: '使用create-react-app快速搭建React开发环境及路由等的使用',
-            link: '/pages/2be28a/'
-          }, {
-            text: 'hooks之useEffect',
-            link: '/pages/a6152f/'
-          }
-        ]
-      }
+      { text: '关于', link: '/pages/5699bd/' }
     ],
     sidebarDepth: 3, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     // logo: 'https://leiwuhen-67.github.io/images/avatar.jpg', // 导航栏logo
@@ -102,7 +113,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
     author: {
       name: 'leiwuhen-67', // 必需
-      link: 'https://github.com/leiwuhen-67', // 可选的
+      link: '', // 可选的
     },
 
     // 博主信息 (显示在首页侧边栏)
@@ -128,7 +139,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       'meta',
       {
         name: 'keywords',
-        content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown',
+        content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,学习,JavaScript,js,ES6,TypeScript,vue,css3,html5,Node,git,github,markdown',
       },
     ],
     ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc' }], // 百度统计的站长验证（你可以去掉）

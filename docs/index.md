@@ -10,11 +10,12 @@ tagline: 不经一番寒彻骨，怎得梅花扑鼻香。
 features: # 可选的
   - title: 前端
     details: JavaScript、Vue、React框架等前端技术
-    link: /pages/0856be/ # 可选
+    link: /web/
+    <!-- link: /pages/0856be/ # 可选 -->
     imgUrl: /img/web.png # 可选
   - title: 随笔
-    details: html(5)/css(3)，前端页面相关技术
-    link: /pages/2403dc/
+    details: 随性之笔
+    link: /random/
     imgUrl: /img/ui.png
   - title: 关于
     details: 关于
