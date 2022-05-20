@@ -1,6 +1,6 @@
 ---
 home: true
-# heroImage: /img/web.png
+# heroImage: https://leiwuhen-67.github.io/my-blog/img/avatar.jpeg
 heroText: leiwuhen-67's blog
 tagline: 不经一番寒彻骨，怎得梅花扑鼻香。
 # actionText: 立刻进入 →
