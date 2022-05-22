@@ -68,12 +68,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           }
         ]
       },
-      { text: '影音播放', link: '/movie/' },
+      { text: '影音视听', link: '/movie/' },
       { text: '收藏', link: '/collect/website/'},
       { text: '关于', link: '/pages/5699bd/' }
     ],
     sidebarDepth: 3, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
-    // logo: 'https://leiwuhen-67.github.io/images/avatar.jpg', // 导航栏logo
+    logo: '/img/avatar.jpeg',
+    //logo: 'https://leiwuhen-67.github.io/images/avatar.jpg', // 导航栏logo
     repo: 'https://github.com/leiwuhen-67/my-blog', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
@@ -88,12 +89,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     // archive: false, // 是否打开归档功能，默认true
     // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
 
+    bodyBgImg: 'https://tva1.sinaimg.cn/large/e37a8833ly8h2hil0flzwj21400u0jx5.jpg',
     // bodyBgImg: [
     //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
     //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
     //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
     // ], // body背景大图，默认无。 单张图片 String | 多张图片 Array, 多张图片时每隔15秒换一张。
-    // bodyBgImgOpacity: 0.5, // body背景图透明度，选值 0.1~ 1.0, 默认0.5
+    bodyBgImgOpacity: 0.8, // body背景图透明度，选值 0.1~ 1.0, 默认0.5
     // titleBadge: false, // 文章标题前的图标是否显示，默认true
     // titleBadgeIcons: [ // 文章标题前图标的地址，默认主题内置图标
     //   '图标地址1',
