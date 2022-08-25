@@ -63,6 +63,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
               }, {
                 text: '《MySQL》笔记',
                 link: '/random/mysql/'
+              }, {
+                text: '《Git》相关',
+                link: '/random/git/'
               }
             ]
           }
