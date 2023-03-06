@@ -31,7 +31,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
           {
-            text: '学习笔记',
+            text: '',
             items: [
               {
                 text: '《Vue》笔记',
@@ -55,7 +55,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         link: '/random/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
           {
-            text: '随性之笔',
+            text: '',
             items: [
               {
                 text: '《Mock》笔记',
