@@ -125,17 +125,17 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
-      avatar: 'https://tva1.sinaimg.cn/large/e37a8833ly8h4k7ghdih2j20dw0dw0t2.jpg',
+      avatar: '/img/avatar.jpeg',
       name: 'leiwuhen-67',
       slogan: '搬砖人',
     },
 
     // 页脚信息
-    footer: {
-      createYear: 2021, // 博客创建年份
-      copyrightInfo:
-        '泪无痕_67', // 博客版权信息，支持a标签或换行标签</br>
-    },
+    // footer: {
+    //   createYear: 2021, // 博客创建年份
+    //   copyrightInfo:
+    //     '泪无痕_67', // 博客版权信息，支持a标签或换行标签</br>
+    // },
 
   },
 
