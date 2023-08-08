@@ -272,13 +272,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           {
             name: '月光-胡彦斌',
             artist: '秦时明月 原声音乐',
-            url: '/bgm/月光-胡彦斌.mp3',
+            url: 'http://ry4l57vbg.hn-bkt.clouddn.com/%E9%9B%AA%E6%9C%88-%E4%B8%87%E7%8E%B2%E7%90%B3.flac?e=1691480181&token=Cpiknnj89MH7BTDhrmStrb6z_ofER6yuMNFu17Yz:jizxDi8Dzs47r6aHWsQrmGJYRSY=',
             cover: '/bgm/2.jpg'
           },
           {
             name: '雪月-万玲琳',
             artist: '少年歌行 原声音乐',
-            url: '/bgm/雪月-万玲琳.flac',
+            url: 'http://ry4l57vbg.hn-bkt.clouddn.com/%E9%9B%AA%E6%9C%88-%E4%B8%87%E7%8E%B2%E7%90%B3.flac?e=1691480208&token=Cpiknnj89MH7BTDhrmStrb6z_ofER6yuMNFu17Yz:CPcA1wx6x9d-3DcRV6Q9CK8dgYE=',
             cover: '/bgm/1.jpg'
           }
           // 网络文件示例
