@@ -263,6 +263,39 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           return dayjs(timestamp).format('YYYY/MM/DD, HH:mm:ss')
         },
       },
+    ],
+    [
+      '@vuepress-reco/vuepress-plugin-bgm-player',
+      {
+        audios: [
+          // 本地文件示例
+          {
+            name: '月光-胡彦斌',
+            artist: '秦时明月 原声音乐',
+            url: '/bgm/月光-胡彦斌.mp3',
+            cover: '/bgm/2.jpg'
+          },
+          {
+            name: '雪月-万玲琳',
+            artist: '少年歌行 原声音乐',
+            url: '/bgm/雪月-万玲琳.flac',
+            cover: '/bgm/1.jpg'
+          }
+          // 网络文件示例
+          // {
+          //   name: '강남역 4번 출구',
+          //   artist: 'Plastic / Fallin` Dild',
+          //   url: 'https://assets.smallsunnyfox.com/music/2.mp3',
+          //   cover: 'https://assets.smallsunnyfox.com/music/2.jpg'
+          // },
+          // {
+          //   name: '用胳膊当枕头',
+          //   artist: '최낙타',
+          //   url: 'https://assets.smallsunnyfox.com/music/3.mp3',
+          //   cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+          // }
+        ]  
+      }
     ]
   ],
 
