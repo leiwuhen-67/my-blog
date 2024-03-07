@@ -45,6 +45,24 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
               }, {
                 text: '《CSS》笔记',
                 link: '/note/css/'
+              }, {
+                text: '《Redis》笔记',
+                link: '/note/redis/'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        text: 'HarmonyOS相关',
+        link: '/harmony/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
+        items: [
+          {
+            text: '',
+            items: [
+              {
+                text: '基础入门',
+                link: '/harmony/base/'
               }
             ]
           }
@@ -239,23 +257,40 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     [
       'vuepress-plugin-comment', // 评论
       {
-        choosen: 'gitalk',
+        choosen: 'valine',
         options: {
-          clientID: 'c0968b8f34a4decd2cd9',
-          clientSecret: '1f1af0bb760d85f86b33f27dcebd77d8757fd37f',
-          repo: 'blogComments', // GitHub 仓库
-          owner: 'leiwuhen-67', // GitHub仓库所有者
-          admin: ['leiwuhen-67'], // 对仓库有写权限的人
-          // distractionFreeMode: true,
-          pagerDirection: 'last', // 'first'正序 | 'last'倒序
-          id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
-          title: '「评论」<%- frontmatter.title %>', // GitHub issue 的标题
-          labels: ['Gitalk', 'Comment'], // GitHub issue 的标签
-          body:
-            '页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>', // GitHub issue 的内容
-        },
+          el: '#valine-vuepress-comment',
+          appId: 'XxLfqbfd6hy8JQUhqHB6aQWk-gzGzoHsz',
+          appKey: 'TnmDGAdACBFcHPkXPlaCr1fI'
+        }
+        // options: {
+        //   clientID: 'c0968b8f34a4decd2cd9',
+        //   clientSecret: '1f1af0bb760d85f86b33f27dcebd77d8757fd37f',
+        //   repo: 'blogComments', // GitHub 仓库
+        //   owner: 'leiwuhen-67', // GitHub仓库所有者
+        //   admin: ['leiwuhen-67'], // 对仓库有写权限的人
+        //   // distractionFreeMode: true,
+        //   pagerDirection: 'last', // 'first'正序 | 'last'倒序
+        //   id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
+        //   title: '「评论」<%- frontmatter.title %>', // GitHub issue 的标题
+        //   labels: ['Gitalk', 'Comment'], // GitHub issue 的标签
+        //   body:
+        //     '页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>', // GitHub issue 的内容
+        // },
       },
     ],
+    // [
+    //   '@vssue/vuepress-plugin-vssue', {
+    //     // 设置平台，而不是 `api` 
+    //     platform: 'github-v4',
+    //     // 其他的 Vssue 配置
+    //     owner: 'leiwuhen-67', // 仓库的拥有者的名称
+    //     repo: 'blogComments', // 存储 Issue 和评论的仓库的名称
+    //     clientId: 'c0968b8f34a4decd2cd9', // 刚保存下来的  Client ID
+    //     clientSecret: '88489fe9603eeebb04630cfd7c866fef521289d4', //  刚才保存下来的 Client secrets
+    //     autoCreateIssue: true
+    //   },
+    // ],
     [
       '@vuepress/last-updated', // "上次更新"时间格式
       {
