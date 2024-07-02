@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs --debug",
-    "build": "vuepress build docs",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && vuepress build docs",
     "docs:dev": "vuepress dev docs --debug",
     "docs:build": "vuepress build docs",
     "deploy": "bash deploy.sh"
