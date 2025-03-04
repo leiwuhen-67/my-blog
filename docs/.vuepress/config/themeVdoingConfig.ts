@@ -53,16 +53,16 @@ export default <VdoingThemeConfig>{
 
   author: {
     // 文章默认的作者信息，可在.md文件front matter中单独配置此信息 String | {name: String, link: String}
-    name: "leiwuhen-67", // 必需
+    name: "心欲无痕", // 必需
     link: "", // 可选的
   },
 
   // 博主信息，显示在首页侧边栏
   blogger: {
     avatar:
-      "/assets/img/avatar.jpeg",
-    name: "leiwuhen-67",
-    slogan: "搬砖人",
+      "/assets/img/wx_qrcode.jpg",
+    name: "我的公众号",
+    slogan: "",
   },
 
   // 社交图标 (显示于博主信息栏和页脚栏。内置图标：https://doc.xugaoyi.com/pages/a20ce8/#social)
