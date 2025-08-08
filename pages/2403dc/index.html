@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mock的基本使用及拦截axios请求 | leiwuhen-67&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,css3,html5,Node,git,github等技术文章。">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.3aa259ac.css" as="style"><link rel="preload" href="/assets/js/app.7e0419d8.js" as="script"><link rel="preload" href="/assets/js/4.3ecaa076.js" as="script"><link rel="preload" href="/assets/js/1.20f1157a.js" as="script"><link rel="preload" href="/assets/js/3.13e73877.js" as="script"><link rel="preload" href="/assets/js/69.a51040ca.js" as="script">
+    <link rel="stylesheet" href="/assets/css/0.styles.3aa259ac.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/avatar.jpeg" alt="leiwuhen-67's blog" class="logo"> <span class="site-name can-hide">leiwuhen-67's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/note/vue/" class="nav-link">《Vue》笔记</a></li><li class="dropdown-subitem"><a href="/note/react/" class="nav-link">《React》笔记</a></li><li class="dropdown-subitem"><a href="/note/node/" class="nav-link">《NodeJs》笔记</a></li><li class="dropdown-subitem"><a href="/note/css/" class="nav-link">《CSS》笔记</a></li><li class="dropdown-subitem"><a href="/note/redis/" class="nav-link">《Redis》笔记</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="HarmonyOS相关" class="dropdown-title"><a href="/harmony/" class="link-title">HarmonyOS相关</a> <span class="title" style="display:none;">HarmonyOS相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/harmony/base/" class="nav-link">基础入门</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="随笔" class="dropdown-title"><a href="/random/" class="link-title">随笔</a> <span class="title" style="display:none;">随笔</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/random/mock/" class="nav-link">《Mock》笔记</a></li><li class="dropdown-subitem"><a href="/random/mysql/" class="nav-link">《MySQL》笔记</a></li><li class="dropdown-subitem"><a href="/random/git/" class="nav-link">《Git》相关</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/movie/" class="nav-link">影音视听</a></div><div class="nav-item"><a href="/collect/website/" class="nav-link">收藏</a></div><div class="nav-item"><a href="/pages/5699bd/" class="nav-link">关于</a></div> <a href="https://github.com/leiwuhen-67/my-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/assets/img/avatar.jpeg"> <div class="blogger-info"><h3></h3> <span></span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/note/vue/" class="nav-link">《Vue》笔记</a></li><li class="dropdown-subitem"><a href="/note/react/" class="nav-link">《React》笔记</a></li><li class="dropdown-subitem"><a href="/note/node/" class="nav-link">《NodeJs》笔记</a></li><li class="dropdown-subitem"><a href="/note/css/" class="nav-link">《CSS》笔记</a></li><li class="dropdown-subitem"><a href="/note/redis/" class="nav-link">《Redis》笔记</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="HarmonyOS相关" class="dropdown-title"><a href="/harmony/" class="link-title">HarmonyOS相关</a> <span class="title" style="display:none;">HarmonyOS相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/harmony/base/" class="nav-link">基础入门</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="随笔" class="dropdown-title"><a href="/random/" class="link-title">随笔</a> <span class="title" style="display:none;">随笔</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/random/mock/" class="nav-link">《Mock》笔记</a></li><li class="dropdown-subitem"><a href="/random/mysql/" class="nav-link">《MySQL》笔记</a></li><li class="dropdown-subitem"><a href="/random/git/" class="nav-link">《Git》相关</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/movie/" class="nav-link">影音视听</a></div><div class="nav-item"><a href="/collect/website/" class="nav-link">收藏</a></div><div class="nav-item"><a href="/pages/5699bd/" class="nav-link">关于</a></div> <a href="https://github.com/leiwuhen-67/my-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>mock</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/2403dc/" aria-current="page" class="active sidebar-link">Mock的基本使用及拦截axios请求</a></li></ul></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/categories/?category=Mock" title="分类" data-v-06225672>Mock</a></li><li data-v-06225672><a href="/categories/?category=mock" title="分类" data-v-06225672>mock</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="javascript:;" data-v-06225672>心欲无痕</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2022-04-07</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><!----> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">Mock的基本使用及拦截axios请求<!----></h1> <!----> <div class="theme-vdoing-content content__default"><p>在项目中经常会遇到这种情况，前端页面写完了，服务端接口还没弄好，没有数据没法看页面具体的效果，贼尴尬，总不能说让后端小哥哥先给造点数据吧，人家这会儿忙着了，哪有空搭理你啊。</p> <p>这时候 Mock 派上用场了，我们可以使用 Mock 来拦截 axios 请求，模拟出我们需要的数据。</p> <p>先来说说它的基本用法：</p> <p>比如要随机生成一个列表，返回 5-10 条数据，可以这样：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token punctuation">{</span>
+	<span class="token string-property property">&quot;list|5-10&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token string-property property">&quot;id|+1&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>          
+			<span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;@cname&quot;</span><span class="token punctuation">,</span>             <span class="token comment">// 生成一个中文名字</span>
+			<span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token string">&quot;@integer(10-20)&quot;</span><span class="token punctuation">,</span>     <span class="token comment">// 返回10-20间的整数</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>数据占位符：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 随机返回一个布尔值</span>
+@<span class="token function">boolean</span><span class="token punctuation">(</span>min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">,</span> current<span class="token operator">?</span><span class="token punctuation">)</span>     
+
+<span class="token comment">// 返回一个随机自然数（大于等于0的整数）</span>
+@<span class="token function">natural</span><span class="token punctuation">(</span>min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">)</span>               
+
+<span class="token comment">// 返回一个随机的整数</span>
+@<span class="token function">integer</span><span class="token punctuation">(</span>min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">)</span>               
+
+<span class="token comment">/*
+返回一个随机的浮点数
+min：整数部分的最小值；
+max：整数部分的最大值；
+dmin：小数部分位数的最小值，默认为0；
+dmax：小数部分位数的最大值，默认值17
+*/</span>
+@<span class="token function">float</span><span class="token punctuation">(</span>min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">,</span> dmin<span class="token operator">?</span><span class="token punctuation">,</span> dmax<span class="token operator">?</span><span class="token punctuation">)</span>   
+
+<span class="token comment">/* 
+返回一个随机字符。pool表示字符池，将从中选择一个字符返回，如果传入了 'lower' 或 'upper'、'number'、'symbol'，表示从内置的字符池从选取
+{
+    lower: &quot;abcdefghijklmnopqrstuvwxyz&quot;,
+    upper: &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;,
+    number: &quot;0123456789&quot;,
+    symbol: &quot;!@#$%^&amp;*()[]&quot;
+}
+*/</span>
+@<span class="token function">character</span><span class="token punctuation">(</span>pool<span class="token operator">?</span><span class="token punctuation">)</span>   
+
+<span class="token comment">/*
+返回一个随机字符串
+pool表示字符池，
+min表示随机字符串最小长度，默认3。
+max表示随机字符串的最大长度，默认为7
+*/</span>
+@<span class="token function">string</span><span class="token punctuation">(</span>pool<span class="token operator">?</span><span class="token punctuation">,</span> min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">)</span>        
+
+<span class="token comment">/*
+返回一个整型数组
+start表示数组的起始值
+stop表示数组的结束值（不包含在返回值中），必选值。
+step表示整数间的步长，默认为1
+*/</span>
+@<span class="token function">range</span><span class="token punctuation">(</span>start<span class="token operator">?</span><span class="token punctuation">,</span> stop<span class="token punctuation">,</span> step<span class="token operator">?</span><span class="token punctuation">)</span>      
+
+
+<span class="token comment">/* 
+返回一个随机的日期字符。
+format表示生成的日期字符串的格式，默认格式yyyy-MM-dd    
+*/</span>
+@<span class="token function">date</span><span class="token punctuation">(</span>format<span class="token operator">?</span><span class="token punctuation">)</span>                      
+
+<span class="token comment">// 返回一个随机的时间字符串，默认格式HH:mm:ss</span>
+@<span class="token function">time</span><span class="token punctuation">(</span>format<span class="token operator">?</span><span class="token punctuation">)</span>                  
+
+<span class="token comment">// 返回一个随机的日期和时间字符串,默认格式yyyy-MM-dd HH:mm:ss</span>
+@<span class="token function">datetime</span><span class="token punctuation">(</span>format<span class="token operator">?</span><span class="token punctuation">)</span>              
+
+<span class="token comment">/* 
+返回当前的日期和时间字符串。
+unit：时间单位，用于对当前日期和时间进行格式化。可选值有：year、month、day、hour、minute、second、week，默认不会格式化。
+format：生成的日期和时间字符串的格式。默认值为 yyyy-MM-dd HH:mm:ss
+*/</span>
+@<span class="token function">now</span><span class="token punctuation">(</span>unit<span class="token operator">?</span><span class="token punctuation">,</span> format<span class="token operator">?</span><span class="token punctuation">)</span>            
+
+
+<span class="token comment">/*
+生成一个随机的图片地址。
+size：指示图片的宽高，格式为 '宽x高'
+background：指示图片的背景色
+foreground：指示图片的前景色
+format：指示图片的格式。默认值为 'png'，可选值包括：'png'、'gif'、'jpg'
+text：指示图片上的文字。默认值为参数 size。
+*/</span>
+@<span class="token function">image</span><span class="token punctuation">(</span>size<span class="token operator">?</span><span class="token punctuation">,</span> background<span class="token operator">?</span><span class="token punctuation">,</span> foreground<span class="token operator">?</span><span class="token punctuation">,</span> format<span class="token operator">?</span><span class="token punctuation">,</span> text<span class="token operator">?</span><span class="token punctuation">)</span> 
+
+<span class="token comment">/*
+生成一段随机的 Base64 图片编码。
+size：指示图片的宽高，格式为 '宽x高'
+text：指示图片上的文字。默认值为参数 size。
+*/</span>
+@<span class="token function">dataImage</span><span class="token punctuation">(</span>size<span class="token operator">?</span><span class="token punctuation">,</span> text<span class="token operator">?</span><span class="token punctuation">)</span>
+
+@<span class="token function">color</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                   <span class="token comment">// 随机生成一个有吸引力的颜色，格式为 '#RRGGBB'。</span>
+
+@<span class="token function">hex</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                     <span class="token comment">// 随机生成一个有吸引力的颜色，格式为 '#RRGGBB'。</span>
+
+@<span class="token function">rgb</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                     <span class="token comment">// 随机生成一个有吸引力的颜色，格式为 'rgb(r, g, b)'。</span>
+
+@<span class="token function">rgba</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                    <span class="token comment">// 随机生成一个有吸引力的颜色，格式为 'rgba(r, g, b, a)'。</span>
+
+@<span class="token function">hsl</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                     <span class="token comment">// 随机生成一个有吸引力的颜色，格式为 'hsl(h, s, l)'。</span>
+
+
+<span class="token comment">/*
+随机生成一段英文文本
+@paragraph()
+@paragraph(len)
+@paragraph(min, max)
+len：指示文本中句子的个数。默认值为 3 到 7 之间的随机数。
+min：指示文本中句子的最小个数。默认值为 3。
+max：指示文本中句子的最大个数。默认值为 7。
+*/</span>
+@<span class="token function">paragraph</span><span class="token punctuation">(</span>min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一段中文文本。
+@cparagraph()
+@cparagraph(len)
+@cparagraph(min, max)
+*/</span>
+@<span class="token function">cparagraph</span><span class="token punctuation">(</span>min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一个英文句子，第一个单词的首字母大写。
+@sentence()
+@sentence(len)
+@sentence(min, max)
+len：指示句子中单词的个数。默认值为 12 到 18 之间的随机数。
+min：指示句子中单词的最小个数。默认值为 12。
+max：指示句子中单词的最大个数。默认值为 18。
+*/</span>
+@<span class="token function">sentence</span><span class="token punctuation">(</span>min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一句中文文本。
+@csentence()
+@csentence(len)
+@csentence(min, max)
+*/</span>
+@<span class="token function">csentence</span><span class="token punctuation">(</span>ming<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一个单词
+@word()
+@word(len)
+@word(min, max)
+len：指示单词中字符的个数。默认值为 3 到 10 之间的随机数。
+min：指示单词中字符的最小个数，默认为3
+max：指示单词中字符的最大个数，默认为10
+*/</span>
+@<span class="token function">word</span><span class="token punctuation">(</span>min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一个汉字
+@cword()
+@cword(pool)
+@cword(length)
+@cword(pool, length)
+@cword(min, max)
+@cword(pool, min, max)
+pool：汉字字符串。表示汉字字符池，将从中选择一个汉字字符返回。
+min：随机汉字字符串的最小长度。默认值为 1。
+max：随机汉字字符串的最大长度。默认值为 1。
+*/</span>
+@<span class="token function">cword</span><span class="token punctuation">(</span>pool<span class="token operator">?</span><span class="token punctuation">,</span> min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一个英文标题，每个单词的首字母大写。
+@title()
+@tilte(len)
+@title(min, max)
+len：指示单词中字符的个数。默认值为 3 到 7 之间的随机数。
+min：指示单词中字符的最小个数。默认值为 3。
+max：指示单词中字符的最大个数。默认为7.
+*/</span>
+@<span class="token function">title</span><span class="token punctuation">(</span>min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一句中文标题。
+@ctitle()
+@ctitle(len)
+@ctitle(min, max)
+len：指示字数。默认值为 3 到 7 之间的随机数。
+min：指示标题中字的最小个数。默认值为 3。
+max：指示标题中字的最大个数。默认为7.
+*/</span>
+@<span class="token function">ctitle</span><span class="token punctuation">(</span>min<span class="token operator">?</span><span class="token punctuation">,</span> max<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个常见的中文姓名。</span>
+@<span class="token function">cname</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个常见的中文姓。</span>
+@<span class="token function">cfirst</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个常见的中文名。</span>
+@<span class="token function">clast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个常见的英文名。middle可选，布尔值。指示是否生成中间名。</span>
+@<span class="token function">name</span><span class="token punctuation">(</span>middle<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个常见的英文名。</span>
+@<span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个常见的英文姓。</span>
+@<span class="token function">last</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一个 URL。
+@url()
+@url(protocol, host)
+protocol：指定 URL 协议。例如 http
+host：指定 URL 域名和端口号。例如 nuysoft.com。
+*/</span>
+@<span class="token function">url</span><span class="token punctuation">(</span>protocol<span class="token operator">?</span><span class="token punctuation">,</span> host<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一个 URL 协议。返回以下值之一：'http'、'ftp'、'gopher'、'mailto'、'mid'、'cid'、'news'、'nntp'、'prospero'、'telnet'、'rlogin'、'tn3270'、'wais'。
+*/</span>
+@<span class="token function">protocol</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个域名</span>
+@<span class="token function">domain</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个顶级域名</span>
+@<span class="token function">tld</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一个邮件地址。
+@email()
+@email(domain)
+domain：指定邮件地址的域名。例如 qq.com。h.pqpneix@qq.com&quot;
+*/</span>
+@<span class="token function">email</span><span class="token punctuation">(</span> domain<span class="token operator">?</span> <span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个IP地址</span>
+@<span class="token function">ip</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个（中国）大区。如，华中、华北</span>
+@<span class="token function">region</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个（中国）省（或直辖市、自治区、特别行政区）。</span>
+@<span class="token function">province</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一个（中国）市。
+@city()
+@city(prefix)
+prefix：布尔值。指示是否生成所属的省。
+*/</span>
+@<span class="token function">city</span><span class="token punctuation">(</span>prefix<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">/*
+随机生成一个（中国）县。
+prefix：布尔值。指示是否生成所属的省、市。
+*/</span>
+@<span class="token function">county</span><span class="token punctuation">(</span>prefix<span class="token operator">?</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个邮政编码（六位数字）。</span>
+@<span class="token function">zip</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 把字符串的第一个字母转换为大写。</span>
+@<span class="token function">capitalize</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span>
+
+<span class="token comment">// 把字符串转换为大写</span>
+@<span class="token function">upper</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+
+<span class="token comment">// 把字符串转换为小写</span>
+@<span class="token function">lower</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+
+<span class="token comment">// 从数组中随机选取一个元素，并返回。</span>
+@<span class="token function">pick</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+
+<span class="token comment">// 打乱数组中元素的顺序，并返回。</span>
+@<span class="token function">shuffle</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个GUID。如662C63B4-FD43-66F4-3328-C54E3FF0D56E</span>
+@<span class="token function">guid</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 随机生成一个 18 位身份证。</span>
+@<span class="token constant">ID</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 生成一个全局的自增整数。step可选，整数自增步长，默认为1</span>
+@<span class="token function">increment</span><span class="token punctuation">(</span>step<span class="token operator">?</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br><span class="line-number">262</span><br><span class="line-number">263</span><br><span class="line-number">264</span><br><span class="line-number">265</span><br><span class="line-number">266</span><br><span class="line-number">267</span><br><span class="line-number">268</span><br><span class="line-number">269</span><br><span class="line-number">270</span><br><span class="line-number">271</span><br><span class="line-number">272</span><br><span class="line-number">273</span><br><span class="line-number">274</span><br></div></div><p>使用 mock 拦截 axios 请求：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">import</span> Mock <span class="token keyword">from</span> <span class="token string">'mockjs'</span>
+<span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'http://192.168.10.187:8089/api/mg/mall/goods'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'res'</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'http://192.168.10.187:8089/api/mg/mall/goods'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token string-property property">&quot;list|5-10&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token string-property property">&quot;suid|+1&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;@cname&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token string">&quot;@integer(10-20)&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">address</span><span class="token operator">:</span> <span class="token string">&quot;@province @city @county&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">&quot;@ID&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">img</span><span class="token operator">:</span> <span class="token string">&quot;@image(100x100, #eee)&quot;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">&quot;@cparagraph&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>结果如下：</p> <p><img src="https://s3.bmp.ovh/imgs/2022/04/07/1ee746dc1df86cfa.png" alt=""></p></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/leiwuhen-67/my-blog/edit/master/docs/Mock/01.mock/02.Mock的基本使用及拦截axios请求.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">7/1/2024, 4:56:33 PM</span></div></div> <div class="page-nav-wapper"><!----> <!----></div></div> <!----></main></div> <div class="footer"><!----> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> <!----></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.7e0419d8.js" defer></script><script src="/assets/js/4.3ecaa076.js" defer></script><script src="/assets/js/1.20f1157a.js" defer></script><script src="/assets/js/3.13e73877.js" defer></script><script src="/assets/js/69.a51040ca.js" defer></script>
+  </body>
+</html>

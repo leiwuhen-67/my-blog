@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Less基本用法 | leiwuhen-67&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,css3,html5,Node,git,github等技术文章。">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.3aa259ac.css" as="style"><link rel="preload" href="/assets/js/app.7e0419d8.js" as="script"><link rel="preload" href="/assets/js/4.3ecaa076.js" as="script"><link rel="preload" href="/assets/js/1.20f1157a.js" as="script"><link rel="preload" href="/assets/js/3.13e73877.js" as="script"><link rel="preload" href="/assets/js/74.17b7224b.js" as="script">
+    <link rel="stylesheet" href="/assets/css/0.styles.3aa259ac.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/avatar.jpeg" alt="leiwuhen-67's blog" class="logo"> <span class="site-name can-hide">leiwuhen-67's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/note/vue/" class="nav-link">《Vue》笔记</a></li><li class="dropdown-subitem"><a href="/note/react/" class="nav-link">《React》笔记</a></li><li class="dropdown-subitem"><a href="/note/node/" class="nav-link">《NodeJs》笔记</a></li><li class="dropdown-subitem"><a href="/note/css/" class="nav-link">《CSS》笔记</a></li><li class="dropdown-subitem"><a href="/note/redis/" class="nav-link">《Redis》笔记</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="HarmonyOS相关" class="dropdown-title"><a href="/harmony/" class="link-title">HarmonyOS相关</a> <span class="title" style="display:none;">HarmonyOS相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/harmony/base/" class="nav-link">基础入门</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="随笔" class="dropdown-title"><a href="/random/" class="link-title">随笔</a> <span class="title" style="display:none;">随笔</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/random/mock/" class="nav-link">《Mock》笔记</a></li><li class="dropdown-subitem"><a href="/random/mysql/" class="nav-link">《MySQL》笔记</a></li><li class="dropdown-subitem"><a href="/random/git/" class="nav-link">《Git》相关</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/movie/" class="nav-link">影音视听</a></div><div class="nav-item"><a href="/collect/website/" class="nav-link">收藏</a></div><div class="nav-item"><a href="/pages/5699bd/" class="nav-link">关于</a></div> <a href="https://github.com/leiwuhen-67/my-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/assets/img/avatar.jpeg"> <div class="blogger-info"><h3></h3> <span></span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/note/vue/" class="nav-link">《Vue》笔记</a></li><li class="dropdown-subitem"><a href="/note/react/" class="nav-link">《React》笔记</a></li><li class="dropdown-subitem"><a href="/note/node/" class="nav-link">《NodeJs》笔记</a></li><li class="dropdown-subitem"><a href="/note/css/" class="nav-link">《CSS》笔记</a></li><li class="dropdown-subitem"><a href="/note/redis/" class="nav-link">《Redis》笔记</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="HarmonyOS相关" class="dropdown-title"><a href="/harmony/" class="link-title">HarmonyOS相关</a> <span class="title" style="display:none;">HarmonyOS相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/harmony/base/" class="nav-link">基础入门</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="随笔" class="dropdown-title"><a href="/random/" class="link-title">随笔</a> <span class="title" style="display:none;">随笔</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4></h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/random/mock/" class="nav-link">《Mock》笔记</a></li><li class="dropdown-subitem"><a href="/random/mysql/" class="nav-link">《MySQL》笔记</a></li><li class="dropdown-subitem"><a href="/random/git/" class="nav-link">《Git》相关</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/movie/" class="nav-link">影音视听</a></div><div class="nav-item"><a href="/collect/website/" class="nav-link">收藏</a></div><div class="nav-item"><a href="/pages/5699bd/" class="nav-link">关于</a></div> <a href="https://github.com/leiwuhen-67/my-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Less</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/dcaaea/" aria-current="page" class="active sidebar-link">Less基本用法</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>瀑布流布局</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/note/css/#《CSS》笔记" data-v-06225672>《CSS》笔记</a></li><li data-v-06225672><a href="/note/css/#Less" data-v-06225672>Less</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="javascript:;" data-v-06225672>心欲无痕</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2022-05-11</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">Less基本用法<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h3 id="一、混入"><a href="#一、混入" class="header-anchor">#</a> 一、混入</h3> <p>混入：分为类混入和函数混入。类混入是将若干个类在另一个 {} 中使用 () 调用，使被调用的类的属性代码在新的类中生成。</p> <h4 id="_1、类混入"><a href="#_1、类混入" class="header-anchor">#</a> 1、类混入<br></h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>.left {
+  text-align: left;
+}
+.txtColor: {
+  color: #eee;
+}
+.box {
+  .left();
+  .txtColor();
+}
+
+// 上面less代码编译成css代码后如下：
+.left {
+  text-align: left;
+}
+.txtColor: {
+  color: #eee;
+}
+.box {
+	text-align: left;
+	color: #eee;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>可以看出类混入定义的类会被编译到 css 代码中，造成代码冗余。</p> <h4 id="_2、函数混入"><a href="#_2、函数混入" class="header-anchor">#</a> 2、函数混入<br></h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>.函数名(){};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>使用时将类定义到函数中，在另一个类中使用时，直接调用函数即可，但是不会在 css 代码中生成类，函数里可以传入参数，定义了参数后就必须传入参数，否则报错，可传默认参数，就是在形参变量后加冒号，冒号后面的值即为默认值。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@left: left;
+@right: right;
+.txtLeft (@pos: left) {
+  text-align: @pos;
+}
+.txtColor () {
+  color: #eee;
+}
+.box {
+  .txtLeft(@right);
+  .txtColor()
+}
+
+// 上面代码编译后生成css代码如下：
+.box {
+  text-align: right;
+  color: #eee;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>ps：混入函数定义中 {} 里面可以继续定义类，使用到函数里具体的某个类时，直接通过函数名加类名的方式 (调用时函数名后不能加括号)。如：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>.txtStyle() {
+  .color {
+      color: #eee;
+  }
+  .size {
+      font-size: 18px;
+  }
+}
+.box {
+  .txtStyle.size;
+}
+
+// 编译后的css代码如下：
+.box {
+  font-size: 18px;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="二、映射-在函数中定义key和value键值对"><a href="#二、映射-在函数中定义key和value键值对" class="header-anchor">#</a> 二、映射：在函数中定义 key 和 value 键值对</h3> <p>使用时，通过 [] 加键拿到具体的 value。如：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>.txtStyle () {
+  color: #eee;
+  size: 25px;
+}
+.box {
+  color: .txtStyle[color];
+  font-size: .txtStyle[size]
+}
+
+// 编译后的css代码如下
+.box {
+  color: #eee;
+  font-size: 25px;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>ps：定义键值对时，value 值不能加引号，调用时方法名不能加括号，[] 中的 key 不能加引号。<br></p> <h3 id="三、运算"><a href="#三、运算" class="header-anchor">#</a> 三、运算</h3> <p>运算：可进行加减乘除等操作。任何的数字、颜色、变量等都可以参与运算。运算符左右两边须用空格隔开，如果两个变量中只有一个变量有单位或两个变量的单位相同时，则结果的单位就与有单位的那个变量相同。如果两个变量都有单位时，以前面变量为结果的单位。<br><br>
+calc ()：使用 calc 后，将不再对数学表达式进行计算，但是在嵌套函数中会计算变量和数学公式的值。如:<br></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@num: 20px / 2;
+@num2: calc(50px / 2);
+.calcWrapper {
+  width: calc(50% + (@num - 3px));
+  height: @num2;
+}
+
+// 编译后的css代码如下：
+.calcWrapper {
+  width: calc(50% + (10px - 3px));
+  height: calc(50px / 2);
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="四、扩展-extend"><a href="#四、扩展-extend" class="header-anchor">#</a> 四、扩展（:extend）</h3> <p>在一个选择其中扩展其他选择器的样式。如：<br></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>h3 {
+  &amp;:extend(.span);
+  font-size: 18px;
+}
+.span {
+  color: #eee;
+}
+
+// 编译后的css代码如下
+h3 {
+  font-size: 18px;
+}
+.span,
+h3 {
+  color: #eee;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>:extend () 中可包含多个类，如:<br></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>h3 {
+  &amp;:extend(.span, .opa);
+  background: #666;
+}
+.span {
+  font-size: 18px;
+}
+.opa {
+  opacity: 0.8;
+}
+
+// 编译后的css代码如下：
+h3 {
+  background: #666;
+}
+.span, h3 {
+  font-size: 18px;
+}
+.opa, h3 {
+  opacity: 0.8;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h3 id="五、循环"><a href="#五、循环" class="header-anchor">#</a> 五、循环</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>@arr: red, green, blue, orange;
+@len: length(@arr);
+.cont(@count) when (@count &lt;= @len) {
+  .list@{count} {
+    color: extract(@arr, @count)
+  }
+  .cont(@count + 1)
+}
+.cont(0);
+
+// 编译结果如下：
+.list1 {
+  color: red;
+}
+.list2 {
+  color: green;
+}
+.list3 {
+  color: blue;
+}
+.list4 {
+  color: orange;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h3 id="六、extract函数"><a href="#六、extract函数" class="header-anchor">#</a> 六、extract 函数</h3> <p>用法：extract (list, index)<br>
+ list 是一个值列表，值之间可用逗号或空格隔开。<br><br>
+index 是一个整数，指定要返回的列表元素的位置。</p> <h3 id="七、range函数"><a href="#七、range函数" class="header-anchor">#</a> 七、range 函数</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>/*
+  start：起始值，可选。
+  end：最终值。
+  step：要增加的数量，可选
+*/
+用法：range(start, end, step)
+
+range(4);                //1 2 3 4
+range(10px, 40px, 10);   // 10px 20px 30px 40px
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="八、each函数"><a href="#八、each函数" class="header-anchor">#</a> 八、each 函数</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>/*
+each遍历集合值，value指当前值，index指当前索引。
+*/
+@list: red, green, blue;
+each(@list, {
+  .box@{index} {
+      background: @value;
+  }
+})
+
+// 编译后的css代码如下：
+.box1 {
+  background: red;
+}
+.box2 {
+  background: green;
+}
+.box3 {
+  background: blue;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h3 id="九、if函数"><a href="#九、if函数" class="header-anchor">#</a> 九、if 函数</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>/*
+  有3个参数，
+  第一个参数是一个布尔表达式，
+  第二个参数表示第一个参数为真时返回的值，
+  第三个参数表示第一个参数为假时返回的值
+*/
+@w: 50px;
+@h: 50px;
+@num: 5;
+.box {
+  width: if(@val &gt; 10, @w, calc(@w/2));
+  height: if(@val &gt; 10, @h, calc(@h/2));
+}
+
+// 编译后的css代码如下：
+.box {
+  width: 25px;
+  height: 25px;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><h3 id="十、获取图片的宽高"><a href="#十、获取图片的宽高" class="header-anchor">#</a> 十、获取图片的宽高</h3> <p>图片的宽度：image-width (imgUrl)<br><br>
+图片的高度：image-height (imgUrl)</p></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/leiwuhen-67/my-blog/edit/master/docs/《CSS》笔记/01.Less/01.Less基本用法.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">7/1/2024, 4:56:33 PM</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><!----> <a href="/pages/6ee7ee/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">自定义复选框checkbox样式</div></a></div> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/pages/6ee7ee/">自定义复选框checkbox样式</a>→
+      </span></p></div></div></div> <!----></main></div> <div class="footer"><!----> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> <!----></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.7e0419d8.js" defer></script><script src="/assets/js/4.3ecaa076.js" defer></script><script src="/assets/js/1.20f1157a.js" defer></script><script src="/assets/js/3.13e73877.js" defer></script><script src="/assets/js/74.17b7224b.js" defer></script>
+  </body>
+</html>
