@@ -60,8 +60,8 @@ export default <VdoingThemeConfig>{
   // 博主信息，显示在首页侧边栏
   blogger: {
     avatar:
-      "/assets/img/wx_qrcode.jpg",
-    name: "我的公众号",
+      "/assets/img/avatar.jpeg",
+    // name: "我的公众号",
     slogan: "",
   },
 
